@@ -1,0 +1,22 @@
+{
+  "createNevise": "ایجاد نویسه",
+  "of": "از",
+  "continue": "ادامه",
+  "topic": "عنوان",
+  "topicPlaceholder": "عنوان لیبل را وارد کنید",
+  "imageFieldTitle": "عکس جلد",
+  "studyDurationTitle": "مدت زمان مورد نیاز برای مطالعه",
+  "studyDurationPlaceholder": "مدت را به دقیقه وارد کنید",
+  "subjects": "موضوعات",
+  "subjectPlaceholder": "موضوع مورد نظرتان را انتخاب کنید...",
+  "setting": "تنظیمات",
+  "enableComments": "فعال کردن نظرات",
+  "release": "انتشار",
+  "selectFileButtonName": "ارسال فایل",
+  "selectionFilePlaceholder": "فایل مورد نظر را انتخاب کنید",
+  "cancelFileButtonName": "انصراف",
+  "processingFilePlaceholder": "در حال پردازش",
+  "removeFileButtonName": "حذف",
+  "errorMessage": "وارد کردن این فیلد الزامی است",
+  "subjectErrorMessage": "حداکثر پنج موضوع را می‌توانید انتخاب کنید"
+}
