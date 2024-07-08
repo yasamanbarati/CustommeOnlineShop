@@ -1,5 +1,5 @@
 'use client'
-import { Fragment, useState } from "react"
+import { useState } from "react"
 import { IconButton } from "@mui/material"
 import MenuBarSection from "./menuBar_section"
 import { MenuIcon } from "@/components/icons"
@@ -17,7 +17,7 @@ const NavbarMenu = () => {
   }
 
   return (
-    <Fragment>
+    <>
       <IconButton
         color="default"
         aria-label="open drawer"
@@ -26,8 +26,8 @@ const NavbarMenu = () => {
         sx={{
           ...(open && { display: 'flex' }),
           position: 'absolute',
-          right: "0",
-          top: '15px',
+          right: "0px",
+          top: '13px',
           MinHeight: "65px",
           justifyContent: "flex-start",
           alignItems: "center"
@@ -36,7 +36,7 @@ const NavbarMenu = () => {
         <MenuIcon/>
       </IconButton>
       <MenuBarSection open={open} handleDrawerClose={handleDrawerClose} />
-    </Fragment>
+    </>
   )
 }
 

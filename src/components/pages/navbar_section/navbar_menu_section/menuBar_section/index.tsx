@@ -1,13 +1,15 @@
-import { Drawer, IconButton, styled } from '@mui/material';
-import { navbarLinks } from '@/services/servers';
+'use client'
 import Link from 'next/link';
+import { Drawer, IconButton, styled, useTheme } from '@mui/material';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
+import { navbarLinks } from '@/services/servers';
 
 interface Props {
     handleDrawerClose: () => void
     open: boolean
 }
 
-const DrawerHeader = styled('div')(({ theme }) => ({
+const DrawerHeader = styled('div')(({ theme }:any) => ({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
@@ -29,7 +31,7 @@ const DrawerStyle = {
     },
 }
 
-const MainLinks = styled(Link)(({theme}) => ({
+const MainLinks = styled(Link)(() => ({
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -39,6 +41,7 @@ const MainLinks = styled(Link)(({theme}) => ({
     fontWeight:'600',
   }))
 const MenuBarSection = ({ handleDrawerClose, open }: Props) => {
+  const theme = useTheme()
   return (
     <Drawer
         sx={DrawerStyle}
@@ -48,7 +51,7 @@ const MenuBarSection = ({ handleDrawerClose, open }: Props) => {
     >
         <DrawerHeader sx={{ justifyContent: "flex-start" }}>
             <IconButton onClick={handleDrawerClose}>
-                
+            <ChevronLeftIcon sx={{ fontSize: "2.5rem" }} />
             </IconButton>
         </DrawerHeader>
           {navbarLinks.map((item , key)=>{
