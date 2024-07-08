@@ -5,11 +5,6 @@ export const navbarLinks = [
     url:'/',
   },
   {
-    id: '2',
-    name:'لوازم خانه',
-    url:'/',
-  },
-  {
     id: '3',
     name:'قاب موبایل',
     url:'/',
@@ -22,16 +17,6 @@ export const navbarLinks = [
   {
     id: '5',
     name:'مدرسه و اداره',
-    url:'/',
-  },
-  {
-    id: '6',
-    name:'کارت و پوستر',
-    url:'/',
-  },
-  {
-    id: '7',
-    name:'جشن و مهمانی',
     url:'/',
   },
 ]
