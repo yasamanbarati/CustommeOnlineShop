@@ -16,16 +16,13 @@ interface Props {
   isLoading?: boolean
 }
 
-const PaperForm = styled(Paper)(({ theme }) => ({
+const PaperForm = styled(Paper)(({ theme }:any) => ({
     position: "relative",
     display: 'flex',
     alignItems: 'center',
     width: '300px',
     marginTop :'25px',
     [theme.breakpoints.down("md")]: {
-        width: '80%',
-    },
-    [theme.breakpoints.down("sm")]: {
         width: '100%',
     },
     height: "50px",

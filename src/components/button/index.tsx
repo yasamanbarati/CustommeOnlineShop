@@ -1,12 +1,14 @@
-'use client'
-import { Button, ButtonProps, SxProps } from '@mui/material'
+"use client";
+import { Button, SxProps } from "@mui/material";
 
-
-interface Props extends ButtonProps {
-  text?: string
-  variant: 'outlined' | 'contained' | 'text'
-  size: 'large' | 'medium' | 'small'
-  sx?: SxProps
+interface Props  {
+  text?: string;
+  variant: "outlined" | "contained" | "text";
+  size: "large" | "medium" | "small";
+  sx?: SxProps;
+  startIcon?: JSX.Element;
+  endIcon?: JSX.Element;
+  color?: string;
 }
 
 const CustomizedButton = ({
@@ -22,7 +24,7 @@ const CustomizedButton = ({
   return (
     <Button
       variant={variant}
-      color={color ?? 'primary'}
+      color={color ?? "primary"}
       size={size}
       disableElevation
       sx={sx}
@@ -31,6 +33,6 @@ const CustomizedButton = ({
     >
       {text}
     </Button>
-  )
-}
-export default CustomizedButton
+  );
+};
+export default CustomizedButton;

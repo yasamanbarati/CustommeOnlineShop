@@ -4,7 +4,7 @@ import { useAppSelector } from "@/setup/store/react-hooks"
 import { Grid, Typography, styled } from "@mui/material"
 import { footerLinksType } from "@/_slice/type"
 
-const ContentLink = styled(Link)(({ theme }) => ({
+const ContentLink = styled(Link)(({ theme }:any) => ({
   display:'flex',
   fontSize:'0.875rem',//14
   lineHeight:'180%',
@@ -12,7 +12,7 @@ const ContentLink = styled(Link)(({ theme }) => ({
   color : theme.palette.black.main,
   marginBottom: '14px',
 }))
-const TitleContent = styled(Typography)(({theme})=>({
+const TitleContent = styled(Typography)(({theme}:any)=>({
   color: theme.palette.black.main,
   marginBottom: '20px',
   position : 'relative',
@@ -32,7 +32,7 @@ export const FooterContentLinks = () => {
     return (
         <Grid container md={8} xs={12}>
           {data.map((item:footerLinksType)=>{
-            return <Grid item md={4}>
+            return <Grid item xs={4}>
               <TitleContent variant='body1'>{item.title}</TitleContent>
               {item.links.map((item)=>{
                 return <ContentLink href={item.path}>{item.name}</ContentLink>
