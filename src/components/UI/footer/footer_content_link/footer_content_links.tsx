@@ -1,8 +1,8 @@
 'use client'
 import Link from "next/link"
-import { useAppSelector } from "@/setup/store/react-hooks"
 import { Grid, Typography, styled } from "@mui/material"
 import { footerLinksType } from "@/_slice/type"
+import { footerLinks } from "@/services/servers/mock"
 
 const ContentLink = styled(Link)(({ theme }:any) => ({
   display:'flex',
@@ -28,11 +28,10 @@ const TitleContent = styled(Typography)(({theme}:any)=>({
   },
 }))
 export const FooterContentLinks = () => {
-    const data = useAppSelector(state => state.layout.footerLinks)
     return (
         <Grid container md={8} xs={12}>
-          {data.map((item:footerLinksType)=>{
-            return <Grid item xs={4}>
+          {footerLinks.map((item:footerLinksType)=>{
+            return <Grid item xs={4} key={item.title}>
               <TitleContent variant='body1'>{item.title}</TitleContent>
               {item.links.map((item)=>{
                 return <ContentLink href={item.path}>{item.name}</ContentLink>
