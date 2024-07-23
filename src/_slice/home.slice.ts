@@ -1,40 +1,28 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { ReduxBodyType, allProductsType } from "./type"
-
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { CategoriesProps, ReduxBodyType, allProductsType } from "./type";
 const initialState: ReduxBodyType = {
   productCategories: [],
   allProducts: [],
   BestsellingProducts: [],
-}
+};
 
 const setProductCategories = (
   state: ReduxBodyType,
-  action: PayloadAction<string[]>,
+  action: PayloadAction<CategoriesProps[]>
 ) => {
-  state.productCategories = action.payload
-}
-
-const setBestsellingProducts = (
-  state: ReduxBodyType,
-  action: PayloadAction<allProductsType[]>,
-) => {
-  state.BestsellingProducts = action.payload
-  
-  state.BestsellingProducts= state.BestsellingProducts.filter((product: {price : number}) => product.price >= 50);
-  
-}
+  state.productCategories = action.payload;
+};
 
 export const homeSlice = createSlice({
   name: "home",
   initialState: initialState,
-  reducers: {setProductCategories,setBestsellingProducts},
-})
+  reducers: { setProductCategories },
+});
 
-const { actions } = homeSlice
+const { actions } = homeSlice;
 
 export const {
-  setProductCategories:setProductCategoriesAction,
-  setBestsellingProducts: setBestsellingProductsAction,
-} = actions
+  setProductCategories: setProductCategoriesAction,
+} = actions;
 
-export default homeSlice.reducer
+export default homeSlice.reducer;
