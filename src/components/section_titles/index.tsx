@@ -9,7 +9,7 @@ interface Props {
 }
 
 const MainCategoriesSection = styled('div')(({theme})=>({
-  marginTop : '65px',
+  margin : '65px 0',
   display :'flex',
   flexDirection:'column',
 }))
