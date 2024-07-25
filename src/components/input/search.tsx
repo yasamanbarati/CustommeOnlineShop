@@ -22,12 +22,15 @@ const InputSection = styled("div")(({ theme }: any) => ({
       height: "24px",
     },
   },
+  [theme.breakpoints.up("lg")]: {
+    width: "500px",
+  },
   [theme.breakpoints.down("md")]: {
     height: "42px",
   },
 }));
 
-const SearchInput = ({ sx }: SxProps) => {
+const SearchInput = ({ sx }: any) => {
   return (
     <InputSection sx={sx}>
       <InputBase
