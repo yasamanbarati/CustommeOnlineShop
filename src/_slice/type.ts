@@ -7,7 +7,7 @@ export interface allProductsType {
   image: string;
   rating?: number | undefined;
   count?: number;
-  discount?: number ;
+  discount?: number;
 }
 export interface footerLinksType {
   title: string;
@@ -28,6 +28,7 @@ export interface CategoriesProps {
   id: string;
   name: string;
   image: string;
+  link: string;
 }
 export interface ImageListProps {
   img: string;

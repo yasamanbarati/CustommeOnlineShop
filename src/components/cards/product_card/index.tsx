@@ -4,6 +4,8 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import { Typography } from "@mui/material";
 import { allProductsType } from "@/_slice/type";
+import CustomizedButton from "@/components/button";
+import { CartIcon } from "@/components/icons";
 
 const MainSection = styled("div")(({ theme }) => ({
   display: "flex",
@@ -66,8 +68,14 @@ const PriceSection = styled("div")(({ theme }) => ({
 }));
 
 const AddButtonStyle = {
+  position: "absolute",
+  top: "20px",
+  left: "0px",
   height: "45px",
   whiteSpace: "nowrap",
+  "& span": {
+    backgroundColor: "transparent",
+  },
 };
 
 export const ProductCard = ({
@@ -79,15 +87,16 @@ export const ProductCard = ({
   discount,
 }: allProductsType) => {
   const [initialPrice, setInitialPrice] = useState<number>(price);
+  const [discount_, setDiscount] = useState<number | undefined>(discount);
 
   useEffect(() => {
-    if (typeof discount === "undefined") {
+    if (typeof discount_ === "undefined") {
       console.error("Discount is undefined!");
-      return; // Exit if discount is undefined
+      return;
     }
 
-    if (discount !== 0) {
-      const d = 100 - discount;
+    if (discount_ !== 0) {
+      const d = 100 - discount_;
       const p = (price * d) / 100;
       setInitialPrice(p);
     }
@@ -100,26 +109,26 @@ export const ProductCard = ({
         {title}
       </Typography>
       <PriceSection>
-        {/* <CustomizedButton
-          variant="contained"
-          size="small"
-          text="افزودن به سبد"
-          color="secondary"
+        <CustomizedButton
+          size="medium"
+          variant="text"
+          startIcon={<CartIcon />}
+          color="black"
           sx={AddButtonStyle}
-        /> */}
+        />
         <div>
           <h4>
             {initialPrice.toLocaleString("fa-IR")}
 
             <Image
-              src={'/images/download.jpeg'}
+              src={"/images/download.jpeg"}
               alt="Iranian_Rial"
               width={20}
               height={20}
-              style={{marginRight:'4px'}}
+              style={{ marginRight: "4px" }}
             />
           </h4>
-          <h5>{price.toLocaleString("fa-IR")}</h5>
+          {discount_ !== 0 && <h5>{price.toLocaleString("fa-IR")}</h5>}
         </div>
         <span>{discount?.toLocaleString("fa-IR")}%</span>
       </PriceSection>

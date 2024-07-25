@@ -48,11 +48,7 @@ const BestSellersSection = () => {
   }, [data, isLoading]);
 
   return (
-    <Box
-      sx={{
-        padding: { xs: "0 12px 0 0", sm: "0 20px 0 0", md: "0 48px 0 0", lg: "0 76px 0 0" },
-      }}
-    >
+    <Box>
       <TitlesSection title={"پر فروش ترین ها"} titleIcon={<MedalStarIcon />}>
         <MainSection>
           <ReferenceCard
@@ -63,7 +59,7 @@ const BestSellersSection = () => {
           <SwiperSection>
             {bastProduct.map((item, key) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={item.id}>
                   <ProductCard
                     id={item.id}
                     image={item.image}
