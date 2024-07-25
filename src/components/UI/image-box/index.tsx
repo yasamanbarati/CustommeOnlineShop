@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
 import { Box, ImageList, ImageListItem } from "@mui/material";
-import { specialSaleData } from "@/services/servers";
 import { ImageListProps } from "@/_slice/type";
 
-interface Props{
-  Data: ImageListProps[]
+interface Props {
+  Data: ImageListProps[];
 }
 
 const srcset = (
@@ -22,12 +21,12 @@ const srcset = (
   };
 };
 
-const ImageBox = ({Data}:Props) => {
+const ImageBox = ({ Data }: Props) => {
   return (
     <Box>
       <ImageList
         sx={{
-          height: 500,
+          height: "auto",
           transform: "translateZ(0)",
           overflow: "hidden",
         }}
@@ -40,10 +39,10 @@ const ImageBox = ({Data}:Props) => {
             key={item.img}
             cols={item.cols || 1}
             rows={item.rows || 1}
-            sx={{ height: `calc(${item.cols} * 125px)!important` }}
+            sx={{ height: `calc(${item.rows} * 125px)!important` }}
           >
             <Image
-            // @ts-ignore
+              // @ts-ignore
               {...srcset(item.img, 125, item.rows, item.cols)}
               alt={item.title}
               loading="lazy"

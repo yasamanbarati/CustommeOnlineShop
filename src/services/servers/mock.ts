@@ -1,4 +1,8 @@
-import { ImageListProps, allProductsType, footerLinksType } from "@/_slice/type";
+import {
+  ImageListProps,
+  allProductsType,
+  footerLinksType,
+} from "@/_slice/type";
 
 export const navbarLinks = [
   {
@@ -22,7 +26,7 @@ export const navbarLinks = [
     url: "/",
   },
 ];
-export const footerLinks:footerLinksType[] = [
+export const footerLinks: footerLinksType[] = [
   {
     title: "همراه با کاستومی",
     links: [
@@ -115,13 +119,39 @@ export const specialSaleData: ImageListProps[] = [
   {
     img: "/images/tile21_4_.webp",
     title: "بچگانه",
-    rows: 1,
+    rows: 2,
     cols: 2,
   },
   {
     img: "/images/tile3_4_.webp",
     title: "زنانه",
-    rows: 1,
+    rows: 2,
+    cols: 2,
+  },
+];
+export const journalData: ImageListProps[] = [
+  {
+    img: "/images/women_landing3_1_.webp",
+    title: "زنانه",
+    rows: 3,
+    cols: 2,
+  },
+  {
+    img: "/images/women_landing4_1_.webp",
+    title: "زنانه",
+    rows: 3,
+    cols: 4,
+  },
+  {
+    img: "/images/women_landing2_1_.webp",
+    title: "زنانه",
+    rows: 3,
+    cols: 4,
+  },
+  {
+    img: "/images/women_landing_1_.webp",
+    title: "زنانه",
+    rows: 3,
     cols: 2,
   },
 ];

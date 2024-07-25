@@ -26,7 +26,6 @@ export const palette = {
     main: "#146C43",
     light: "#D1F7E5",
   },
-  //#D4A628 #FFDB7D
   black: {
     main: "#110506",
     light: "#D6D6D6",

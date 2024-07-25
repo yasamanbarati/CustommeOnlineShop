@@ -1,8 +1,15 @@
+import ProductSliderSection from "@/components/UI/ product-slider_section";
 import BestSellersSection from "@/components/UI/best_sellers_section";
 import CoverSection from "@/components/UI/cover_section";
 import ImageBox from "@/components/UI/image-box";
 import ProductCategoriesSection from "@/components/UI/product_categories_section";
-import { initializeAppData, specialSaleData } from "@/services/servers";
+import { MedalStarIcon } from "@/components/icons";
+import {
+  initializeAppData,
+  journalData,
+  specialSaleData,
+} from "@/services/servers";
+import { getAllProduct } from "@/services/servers/api";
 import { Container } from "@mui/material";
 
 export default function Home() {
@@ -17,9 +24,16 @@ export default function Home() {
         }}
       >
         <ProductCategoriesSection />
-        <ImageBox Data={specialSaleData}/>
-      </Container>
         <BestSellersSection />
+        <ImageBox Data={specialSaleData} />
+        <ProductSliderSection
+          title="محصولات"
+          titleIcon={<MedalStarIcon />}
+          queryProductKey={"products"}
+          queryProductFn={getAllProduct()}
+        />
+        <ImageBox Data={journalData} />
+      </Container>
     </>
   );
 }
