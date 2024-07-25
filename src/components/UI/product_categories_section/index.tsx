@@ -1,14 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
+import { Grid, Typography, styled } from "@mui/material";
+
 import { getCategoriesInfo } from "@/services/servers/api";
 import { CategoriesProps } from "@/_slice/type";
-import { Grid, Typography, styled } from "@mui/material";
+
 import { MedalStarIcon } from "@/components/icons";
 import TitlesSection from "@/components/section_titles";
+
 import "/home/yasamanbarati/Work/customme_online_shop/src/setup/assets/animations/index.css";
 
-const CategoriesCardSection = styled("div")(({ theme }: any) => ({
+const CategoriesCardSection = styled(Link)(({ theme }: any) => ({
   position: "relative",
   width: "230px",
   height: "230px",
@@ -113,7 +117,7 @@ const ProductCategoriesSection = () => {
               display="flex"
               justifyContent="center"
             >
-              <CategoriesCardSection>
+              <CategoriesCardSection href={item.link}>
                 <CategoryImage src={item.image} alt="Categories" />
                 <CategoryImageBlobBounce></CategoryImageBlobBounce>
                 <Typography variant="h6" component="h2" position="absolute">
