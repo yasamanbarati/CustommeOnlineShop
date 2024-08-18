@@ -28,63 +28,78 @@ export const navbarLinks = [
 ];
 export const footerLinks: footerLinksType[] = [
   {
+    id: 1,
     title: "همراه با کاستومی",
     links: [
       {
+        id: 12,
         name: "فروش محصولات",
         path: "./",
       },
       {
+        id: 13,
         name: "فرصت همکاری",
         path: "./",
       },
       {
+        id: 14,
         name: "تماس با ما",
         path: "./",
       },
       {
+        id: 15,
         name: "نقشه سایت",
         path: "./",
       },
     ],
   },
   {
+    id: 2,
     title: "خدمات مشتریان",
     links: [
       {
+        id: 21,
         name: "سوالات متداول",
         path: "./",
       },
       {
+        id: 22,
         name: "حریم خصوصی",
         path: "./",
       },
       {
+        id: 23,
         name: "ثبت شکایت",
         path: "./",
       },
       {
+        id: 24,
         name: "ضمانت نامه محصولات",
         path: "./",
       },
     ],
   },
   {
+    id: 3,
     title: "راهنمای خرید",
     links: [
       {
+        id: 31,
         name: "راهنمای ثبت سفارش",
         path: "./",
       },
       {
+        id: 32,
         name: "شیوه های پرداخت",
         path: "./",
       },
       {
+        id: 33,
         name: "نحوه ارسال سفارش ها",
         path: "./",
       },
       {
+        id: 34,
         name: "شرایط بازگرداندن محصول",
         path: "./",
       },

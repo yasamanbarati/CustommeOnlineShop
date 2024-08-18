@@ -1,9 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit'
-import reducer from './root-reducer'
+import { configureStore } from "@reduxjs/toolkit";
+import layoutSlice from "@/_slice/layout.slice";
+import shoppingCardSlice from "@/_slice/shapping_card.slice";
 
 export const store = configureStore({
-  reducer,
-})
-
-export const { dispatch, getState } = store
-export type AppDispatch = typeof store.dispatch
+  reducer: {
+    layout: layoutSlice,
+    shoppingCard: shoppingCardSlice,
+  },
+});
+export type RootState = ReturnType<typeof store.getState>;  
+export type AppDispatch = typeof store.dispatch; 
+export const { dispatch, getState } = store;

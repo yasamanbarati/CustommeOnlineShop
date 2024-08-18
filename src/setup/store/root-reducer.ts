@@ -1,12 +1,12 @@
-import { combineReducers } from "@reduxjs/toolkit"
-import { homeSlice } from "@/_slice/home.slice"
-import layoutSlice from "@/_slice/layout,slice"
+import { combineReducers } from "@reduxjs/toolkit";
+import layoutSlice from "@/_slice/layout.slice";
+import { shoppingCardSlice } from "@/_slice/shapping_card.slice";
 
 const rootReducer = combineReducers({
-  home: homeSlice.reducer,
-  layout : layoutSlice,
-})
+  layout: layoutSlice,
+  shoppingCard: shoppingCardSlice,
+});
 
-export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof rootReducer>;
 
-export default rootReducer
+export default rootReducer;
