@@ -41,6 +41,7 @@ export const theme = createTheme({
           style: {
             fontSize: '1em',
             padding: '10px 24px',
+            width: '100%',
           },
         },
         {
@@ -98,6 +99,12 @@ export const theme = createTheme({
       fontSize:'1rem',//16
       lineHeight:'180%',
       fontWeight:'600',
+      display: '-webkit-box',
+      WebkitLineClamp:'1',
+      WebkitBoxOrient:'vertical',
+      overflow:'hidden',
+      textOverflow:'ellipsis',
+      textAlign:'start',
     },
     body2:{
       fontSize:'0.875rem',//14

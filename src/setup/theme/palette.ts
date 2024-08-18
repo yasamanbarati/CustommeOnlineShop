@@ -11,6 +11,7 @@ export const palette = {
   primary: {
     main: "#FF6B6B",
     light: "#F6EAEB",
+    contrastText: "#fff",
     dark: "#C41E3A",
   },
   secondary: {
@@ -27,7 +28,7 @@ export const palette = {
     light: "#D1F7E5",
   },
   black: {
-    main: "#110506",
+    main: "#434343",
     light: "#D6D6D6",
     lighter: "#a1a3a8",
   },
