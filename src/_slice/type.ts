@@ -8,21 +8,16 @@ export interface allProductsType {
   rating?: number | undefined;
   count?: number;
   discount?: number;
+  quantity?: number | undefined;
 }
 export interface footerLinksType {
+  id: number;
   title: string;
   links: {
+    id: number;
     name: string;
     path: string;
   }[];
-}
-export interface ReduxBodyType {
-  allProducts: allProductsType[];
-  productCategories: CategoriesProps[];
-  BestsellingProducts: allProductsType[];
-}
-export interface ReduxLayoutType {
-  footerLinks: footerLinksType[];
 }
 export interface CategoriesProps {
   id: string;
@@ -35,4 +30,17 @@ export interface ImageListProps {
   title: string;
   rows?: number;
   cols?: number;
+}
+export interface ReduxBodyType {
+  allProducts: allProductsType[];
+  productCategories: CategoriesProps[];
+  BestsellingProducts: allProductsType[];
+}
+export interface ReduxLayoutType {
+  footerLinks: footerLinksType[];
+}
+export interface ReduxShoppingCardType {
+  cartItems: allProductsType[];
+  totalItems: number;
+  countCart: number
 }
