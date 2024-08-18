@@ -1,11 +1,15 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Grid, styled } from "@mui/material";
+import { useRouter } from "next/navigation";
+import { Badge, Grid, IconButton, styled } from "@mui/material";
+import { useSelector } from "react-redux";
+import { RootState } from "@/setup/store";
+
+import { navbarLinks } from "@/services/servers";
+import { CartIcon, LoginIcon } from "@/components/icons";
 import SearchInput from "@/components/input/search";
 import CustomizedButton from "@/components/button";
-import { CartIcon, LoginIcon, MagicPenIcon } from "@/components/icons";
-import { navbarLinks } from "@/services/servers";
 import NavbarMenu from "./navbar_menu_section";
 
 const NavbarSection = styled(Grid)(() => ({
@@ -91,12 +95,18 @@ const MainNavbar = styled(Grid)(() => ({
 }));
 
 export const Navbar = () => {
+  const router = useRouter();
+  const countCart = useSelector(
+    (state: RootState) => state.shoppingCard.countCart
+  );
+  console.log({countCart});
+  
   return (
     <NavbarSection
       container
       spacing={1}
       my={3}
-      padding={{ xs: "0 12px", sm: "0 20px", md: "0 48px", lg: "0 76px" }}
+      padding={{ xs: "0 12px", sm: "0 20px", md: "0 48px", lg: "0 120px" }}
     >
       <MainNavbarSection
         container
@@ -141,10 +151,20 @@ export const Navbar = () => {
           <CustomizedButton
             size="medium"
             variant="text"
-            startIcon={<CartIcon />}
+            startIcon={
+              <Badge
+                badgeContent={countCart}
+                max={100}
+                color="secondary"
+                onClick={() => router.push("/cart")}
+              >
+                <CartIcon />
+              </Badge>
+            }
             text="سبد خرید"
             color="black"
             sx={{ whiteSpace: "nowrap" }}
+            handleAddToCart={() => router.push("/cart")}
           />
         </MainNavbarButtonSection>
 
@@ -155,11 +175,16 @@ export const Navbar = () => {
             display: { xs: "flex", md: "none" },
           }}
         >
-          <CustomizedButton
-            size="small"
-            variant="text"
-            startIcon={<CartIcon />}
-          />
+          <IconButton>
+            <Badge
+              badgeContent={countCart}
+              max={100}
+              color="secondary"
+              onClick={() => router.push("/cart")}
+            >
+              <CartIcon />
+            </Badge>
+          </IconButton>
           <CustomizedButton
             size="small"
             variant="text"
@@ -173,7 +198,7 @@ export const Navbar = () => {
           display: { xs: "flex", md: "none" },
           width: "100%",
           height: "100%",
-          marginTop: '24px',
+          marginTop: "24px",
         }}
       />
 
