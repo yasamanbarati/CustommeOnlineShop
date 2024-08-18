@@ -6,11 +6,16 @@ import { Typography } from "@mui/material";
 import { allProductsType } from "@/_slice/type";
 import CustomizedButton from "@/components/button";
 import { CartIcon } from "@/components/icons";
-
+import { useDispatch } from "react-redux";
+import { setAddToCartAction } from "@/_slice/shapping_card.slice";
+interface Props {
+  carditem: allProductsType;
+}
 const MainSection = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
+  position: "relative",
   alignItems: "start",
   padding: " 8px 12px",
   width: "100%",
@@ -78,16 +83,14 @@ const AddButtonStyle = {
   },
 };
 
-export const ProductCard = ({
-  title,
-  category,
-  image,
-  price,
-  rating,
-  discount,
-}: allProductsType) => {
-  const [initialPrice, setInitialPrice] = useState<number>(price);
-  const [discount_, setDiscount] = useState<number | undefined>(discount);
+export const ProductCard = ({ carditem }: Props) => {
+  const dispatch = useDispatch();
+
+  const [initialPrice, setInitialPrice] = useState<number>(carditem?.price);
+
+  const [discount_, setDiscount] = useState<number | undefined>(
+    carditem?.discount
+  );
 
   useEffect(() => {
     if (typeof discount_ === "undefined") {
@@ -97,16 +100,21 @@ export const ProductCard = ({
 
     if (discount_ !== 0) {
       const d = 100 - discount_;
-      const p = (price * d) / 100;
+      const p = (carditem?.price * d) / 100;
       setInitialPrice(p);
     }
-  }, [price]);
+  }, [carditem?.price]);
 
   return (
-    <MainSection>
-      <Image src={image} alt={title} width={160} height={160} />
+    <MainSection className="product-card">
+      <Image
+        src={carditem?.image}
+        alt={carditem?.title}
+        width={160}
+        height={160}
+      />
       <Typography variant="body2" component="h2">
-        {title}
+        {carditem?.title}
       </Typography>
       <PriceSection>
         <CustomizedButton
@@ -115,10 +123,11 @@ export const ProductCard = ({
           startIcon={<CartIcon />}
           color="black"
           sx={AddButtonStyle}
+          handleAddToCart={() => dispatch(setAddToCartAction(carditem))}
         />
         <div>
           <h4>
-            {initialPrice.toLocaleString("fa-IR")}
+            {initialPrice?.toLocaleString("fa-IR")}
 
             <Image
               src={"/images/download.jpeg"}
@@ -128,9 +137,11 @@ export const ProductCard = ({
               style={{ marginRight: "4px" }}
             />
           </h4>
-          {discount_ !== 0 && <h5>{price.toLocaleString("fa-IR")}</h5>}
+          {discount_ !== 0 && (
+            <h5>{carditem?.price.toLocaleString("fa-IR")}</h5>
+          )}
         </div>
-        <span>{discount?.toLocaleString("fa-IR")}%</span>
+        <span>{carditem?.discount?.toLocaleString("fa-IR")}%</span>
       </PriceSection>
     </MainSection>
   );
