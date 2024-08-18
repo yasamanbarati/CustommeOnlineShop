@@ -67,7 +67,7 @@ export const Footer = () => {
   return (
     <>
       <FooterBox
-        padding={{ xs: "0 12px", sm: "0 20px", md: "0 48px", lg: "0 76px" }}
+        padding={{ xs: "0 12px", sm: "0 20px", md: "0 48px", lg: "0 120px" }}
       >
         <FooterContentBox>
           <FooterContentScrollButton />
@@ -123,7 +123,7 @@ export const Footer = () => {
           </TrustSiteArticle>
           <div style={{ display: "flex", gap: "16px" }}>
             {symbolsImage.map((item) => {
-              return <SymbolImage src={item} />;
+              return <SymbolImage key={item} src={item} />;
             })}
           </div>
         </TrustSiteSection>

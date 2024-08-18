@@ -31,10 +31,10 @@ export const FooterContentLinks = () => {
     return (
         <Grid container md={8} xs={12}>
           {footerLinks.map((item:footerLinksType)=>{
-            return <Grid item xs={4} key={item.title}>
+            return <Grid item xs={4} key={item.id}>
               <TitleContent variant='body1'>{item.title}</TitleContent>
               {item.links.map((item)=>{
-                return <ContentLink href={item.path}>{item.name}</ContentLink>
+                return <ContentLink key={item.id} href={item.path}>{item.name}</ContentLink>
               })}
             </Grid>
           })}
