@@ -6,6 +6,8 @@ import { Typography } from "@mui/material";
 import { allProductsType } from "@/_slice/type";
 import CustomizedButton from "@/components/button";
 import { CartIcon } from "@/components/icons";
+import { useDispatch } from "react-redux";
+import { setAddToCartAction } from "@/_slice/shapping_card.slice";
 
 const MainSection = styled("div")(({ theme }) => ({
   display: "flex",
@@ -86,6 +88,7 @@ export const ProductCard = ({
   rating,
   discount,
 }: allProductsType) => {
+  const dispatch = useDispatch();
   const [initialPrice, setInitialPrice] = useState<number>(price);
   const [discount_, setDiscount] = useState<number | undefined>(discount);
 
@@ -115,6 +118,7 @@ export const ProductCard = ({
           startIcon={<CartIcon />}
           color="black"
           sx={AddButtonStyle}
+          // onClickFun={()=> dispatch(setAddToCartAction())}
         />
         <div>
           <h4>

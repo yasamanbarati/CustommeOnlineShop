@@ -51,10 +51,10 @@ const ConditionsBox = styled("div")(({ theme }) => ({
     "&::after": {
       position: "absolute",
       content: `''`,
-      top: "8px",
-      right: "4px",
-      width: "20px",
-      height: "20px",
+      top: "6px",
+      right: "5px",
+      width: "15px",
+      height: "15px",
       backgroundColor: theme.palette.neutral.dark,
       borderRadius: "50%",
     },
@@ -68,7 +68,7 @@ const SettlementTable = () => {
 
   const transportPrice = 50000;
   return (
-    <Grid item xs={12} md={4}>
+    <Grid item xs={12} md={4} padding={{md:'12px'}}>
       <CheckoutBox>
         <div className="bill-card">
           <h3>جمع جزء</h3>

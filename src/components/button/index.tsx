@@ -1,7 +1,7 @@
 "use client";
 import { Button, SxProps } from "@mui/material";
 
-interface Props  {
+interface Props {
   text?: string;
   variant: "outlined" | "contained" | "text";
   size: "large" | "medium" | "small";
@@ -9,6 +9,7 @@ interface Props  {
   startIcon?: JSX.Element;
   endIcon?: JSX.Element;
   color?: string;
+  onClickFun?: () => void;
 }
 
 const CustomizedButton = ({
@@ -19,6 +20,7 @@ const CustomizedButton = ({
   size,
   sx,
   color,
+  onClickFun,
   ...other
 }: Props) => {
   return (
@@ -29,6 +31,7 @@ const CustomizedButton = ({
       disableElevation
       sx={sx}
       startIcon={startIcon}
+      onClick={onClickFun}
       {...other}
     >
       {text}

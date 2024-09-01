@@ -63,7 +63,7 @@ const ShoppingCard = ({ carditem }: Props) => {
   };
 
   return (
-    <CardBox key={carditem.id}>
+    <CardBox key={carditem.id} className="shopping-card">
       <CardInformationBox>
         <Clear onClick={() => handelRemoveItem(carditem.id)} />
         <Image
