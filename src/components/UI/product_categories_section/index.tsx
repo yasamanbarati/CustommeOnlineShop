@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { Grid, Typography, styled } from "@mui/material";
 
@@ -12,7 +12,8 @@ import TitlesSection from "@/components/section_titles";
 
 import "@/setup/assets/animations/index.css";
 
-const CategoriesCardSection = styled(Link)(({ theme }: any) => ({
+
+const CategoriesCardSection = styled("div")(({ theme }: any) => ({
   position: "relative",
   width: "230px",
   height: "230px",
@@ -95,6 +96,8 @@ const CategoryImageBlobBounce = styled("div")(({ theme }: any) => ({
 const ProductCategoriesSection = () => {
   const [categoriesData, setCategoriesData] = useState<CategoriesProps[]>([]);
 
+  const router = useRouter();
+
   const { data, isLoading } = useQuery({
     queryKey: ["categoriesData"],
     queryFn: () => getCategoriesInfo(),
@@ -102,7 +105,7 @@ const ProductCategoriesSection = () => {
 
   useEffect(() => {
     if (!isLoading && data) setCategoriesData(data);
-}, [data, isLoading]);
+  }, [data, isLoading]);
 
   return (
     <TitlesSection title={"دسته بندی محصولات"} titleIcon={<MedalStarIcon />}>
@@ -117,7 +120,11 @@ const ProductCategoriesSection = () => {
               display="flex"
               justifyContent="center"
             >
-              <CategoriesCardSection href={item.link}>
+              <CategoriesCardSection
+                onClick={() => {
+                  router.push(`/category/${item.id}`);
+                }}
+              >
                 <CategoryImage src={item.image} alt="Categories" />
                 <CategoryImageBlobBounce></CategoryImageBlobBounce>
                 <Typography variant="h6" component="h2" position="absolute">

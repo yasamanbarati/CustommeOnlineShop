@@ -57,16 +57,11 @@ const BestSellersSection = () => {
           />
 
           <SwiperSection>
-            {bastProduct.map((item, key) => {
+            {bastProduct.map((item:allProductsType, key) => {
               return (
                 <SwiperSlide key={item.id}>
                   <ProductCard
-                    id={item.id}
-                    image={item.image}
-                    price={item.price}
-                    title={item.title}
-                    count={item.count}
-                    discount={item.discount}
+                    carditem={item}
                   />
                 </SwiperSlide>
               );

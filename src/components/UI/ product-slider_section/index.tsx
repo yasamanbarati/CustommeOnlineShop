@@ -34,6 +34,9 @@ const MainSection = styled("div")(({ theme }) => ({
       padding: "12px",
       maxWidth: "250px",
       height: "300px",
+      '& .product-card':{
+        boxShadow: `0 2px 3px 1px ${theme.palette.black.light}`
+      }
     },
   },
 }));
@@ -69,14 +72,9 @@ const ProductSliderSection = ({
           <SwiperSection>
             {product.map((item) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={item.id}>
                   <ProductCard
-                    id={item.id}
-                    image={item.image}
-                    price={item.price}
-                    title={item.title}
-                    count={item.count}
-                    discount={item.discount}
+                    carditem={item}
                   />
                 </SwiperSlide>
               );

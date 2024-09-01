@@ -23,7 +23,7 @@ const InputSection = styled("div")(({ theme }: any) => ({
     },
   },
   [theme.breakpoints.up("lg")]: {
-    width: "500px",
+    width: "447px",
   },
   [theme.breakpoints.down("md")]: {
     height: "42px",
