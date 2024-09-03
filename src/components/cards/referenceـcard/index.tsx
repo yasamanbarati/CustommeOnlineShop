@@ -19,10 +19,13 @@ const MainSection = styled("div")(({ theme }) => ({
   padding: "0 16px",
   "& svg": {
     position: "absolute",
-    top: '-35px',
+    top: "-35px",
     zIndex: "1",
     transform: "scale(0.62)",
     filter: "drop-shadow(2px 1px 4px black)",
+  },
+  "& button": {
+    border: " 1px solid",
   },
 }));
 

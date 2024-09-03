@@ -16,9 +16,9 @@ const MainSection = styled("div")(({ theme }) => ({
   justifyContent: "flex-start",
   alignItems: "center",
   backgroundColor: theme.palette.primary.main,
-  borderRadius: "0 16px 16px 0",
-  padding: "20px 0",
-  height: "300px",
+  borderRadius: "16px",
+  padding: "8px 0",
+  minHeight: "300px",
   "& .swiper-section": {
     width: "calc(100% - 160px)",
     "& .swiper-wrapper": {
@@ -30,7 +30,7 @@ const MainSection = styled("div")(({ theme }) => ({
       alignItems: "center",
       padding: "12px",
       maxWidth: "250px",
-      height: "300px",
+      minHeight: "300px",
     },
   },
 }));
