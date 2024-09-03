@@ -205,7 +205,7 @@ export const Navbar = () => {
       <ConnectionsNavbarSection>
         {navbarLinks.map((item, key) => {
           return (
-            <MainLinks href={item.url} key={item.id}>
+            <MainLinks key={item.id} href={`/category/${item.id}`}>
               {item.name}
             </MainLinks>
           );

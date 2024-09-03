@@ -11,17 +11,17 @@ export const navbarLinks = [
     url: "/",
   },
   {
-    id: "3",
+    id: "2",
     name: "مردانه",
     url: "/",
   },
   {
-    id: "4",
+    id: "3",
     name: "بچگانه",
     url: "/",
   },
   {
-    id: "5",
+    id: "4",
     name: "آرایشی",
     url: "/",
   },
