@@ -192,7 +192,11 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
+<<<<<<< HEAD
 /******/ 		__webpack_require__.h = function() { return "4cedf63962c7fc0a"; }
+=======
+/******/ 		__webpack_require__.h = function() { return "ed9931565f63bc3d"; }
+>>>>>>> develop-shopping-card-page
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
