@@ -80,9 +80,9 @@ const ShoppingCard = ({ carditem }: Props) => {
         </Typography>
       </CardInformationBox>
       <CardQuantityBox>
-        <Add onClick={() => handelDecreaseQuantity(carditem.id)} />
+        <Add onClick={() => handelIncreaseQuantity(carditem.id)} />
         <TextField value={carditem.quantity!} disabled />
-        <Remove onClick={() => handelIncreaseQuantity(carditem.id)} />
+        <Remove onClick={() => handelDecreaseQuantity(carditem.id)} />
       </CardQuantityBox>
     </CardBox>
   );
