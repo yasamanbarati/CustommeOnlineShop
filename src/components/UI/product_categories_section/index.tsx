@@ -10,7 +10,7 @@ import { CategoriesProps } from "@/_slice/type";
 import { MedalStarIcon } from "@/components/icons";
 import TitlesSection from "@/components/section_titles";
 
-import "/home/yasamanbarati/Work/customme_online_shop/src/setup/assets/animations/index.css";
+import "@/setup/assets/animations/index.css";
 
 
 const CategoriesCardSection = styled("div")(({ theme }: any) => ({

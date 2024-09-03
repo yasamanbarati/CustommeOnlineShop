@@ -8,9 +8,13 @@ import CustomizedButton from "@/components/button";
 import { CartIcon } from "@/components/icons";
 import { useDispatch } from "react-redux";
 import { setAddToCartAction } from "@/_slice/shapping_card.slice";
+<<<<<<< HEAD
+
+=======
 interface Props {
   carditem: allProductsType;
 }
+>>>>>>> 72dd1030886ff3add9966c4a080dcfed0b1717d2
 const MainSection = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -83,6 +87,19 @@ const AddButtonStyle = {
   },
 };
 
+<<<<<<< HEAD
+export const ProductCard = ({
+  title,
+  category,
+  image,
+  price,
+  rating,
+  discount,
+}: allProductsType) => {
+  const dispatch = useDispatch();
+  const [initialPrice, setInitialPrice] = useState<number>(price);
+  const [discount_, setDiscount] = useState<number | undefined>(discount);
+=======
 export const ProductCard = ({ carditem }: Props) => {
   const dispatch = useDispatch();
 
@@ -91,6 +108,7 @@ export const ProductCard = ({ carditem }: Props) => {
   const [discount_, setDiscount] = useState<number | undefined>(
     carditem?.discount
   );
+>>>>>>> 72dd1030886ff3add9966c4a080dcfed0b1717d2
 
   useEffect(() => {
     if (typeof discount_ === "undefined") {
@@ -123,7 +141,11 @@ export const ProductCard = ({ carditem }: Props) => {
           startIcon={<CartIcon />}
           color="black"
           sx={AddButtonStyle}
+<<<<<<< HEAD
+          // onClickFun={()=> dispatch(setAddToCartAction())}
+=======
           handleAddToCart={() => dispatch(setAddToCartAction(carditem))}
+>>>>>>> 72dd1030886ff3add9966c4a080dcfed0b1717d2
         />
         <div>
           <h4>
