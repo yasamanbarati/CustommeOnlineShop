@@ -8,13 +8,9 @@ import CustomizedButton from "@/components/button";
 import { CartIcon } from "@/components/icons";
 import { useDispatch } from "react-redux";
 import { setAddToCartAction } from "@/_slice/shapping_card.slice";
-<<<<<<< HEAD
-
-=======
 interface Props {
   carditem: allProductsType;
 }
->>>>>>> 72dd1030886ff3add9966c4a080dcfed0b1717d2
 const MainSection = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -25,6 +21,7 @@ const MainSection = styled("div")(({ theme }) => ({
   width: "100%",
   height: "100%",
   borderRadius: "16px",
+  gap: '8px',
   backgroundColor: theme.palette.neutral.main,
   "& img": {
     alignSelf: "center",
@@ -78,28 +75,16 @@ const PriceSection = styled("div")(({ theme }) => ({
 
 const AddButtonStyle = {
   position: "absolute",
-  top: "20px",
+  top: "12px",
   left: "0px",
   height: "45px",
   whiteSpace: "nowrap",
+  padding: "0",
   "& span": {
     backgroundColor: "transparent",
   },
 };
 
-<<<<<<< HEAD
-export const ProductCard = ({
-  title,
-  category,
-  image,
-  price,
-  rating,
-  discount,
-}: allProductsType) => {
-  const dispatch = useDispatch();
-  const [initialPrice, setInitialPrice] = useState<number>(price);
-  const [discount_, setDiscount] = useState<number | undefined>(discount);
-=======
 export const ProductCard = ({ carditem }: Props) => {
   const dispatch = useDispatch();
 
@@ -108,7 +93,6 @@ export const ProductCard = ({ carditem }: Props) => {
   const [discount_, setDiscount] = useState<number | undefined>(
     carditem?.discount
   );
->>>>>>> 72dd1030886ff3add9966c4a080dcfed0b1717d2
 
   useEffect(() => {
     if (typeof discount_ === "undefined") {
@@ -141,11 +125,7 @@ export const ProductCard = ({ carditem }: Props) => {
           startIcon={<CartIcon />}
           color="black"
           sx={AddButtonStyle}
-<<<<<<< HEAD
-          // onClickFun={()=> dispatch(setAddToCartAction())}
-=======
           handleAddToCart={() => dispatch(setAddToCartAction(carditem))}
->>>>>>> 72dd1030886ff3add9966c4a080dcfed0b1717d2
         />
         <div>
           <h4>
@@ -165,6 +145,13 @@ export const ProductCard = ({ carditem }: Props) => {
         </div>
         <span>{carditem?.discount?.toLocaleString("fa-IR")}%</span>
       </PriceSection>
+      <CustomizedButton
+        size="large"
+        variant="contained"
+        color="secondary"
+        text="مشاهده"
+        handleAddToCart={() => dispatch(setAddToCartAction(carditem))}
+      />
     </MainSection>
   );
 };
