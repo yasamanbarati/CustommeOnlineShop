@@ -1,12 +1,15 @@
-'use client'
-import { Button, ButtonProps, SxProps } from '@mui/material'
+"use client";
+import { Button, SxProps } from "@mui/material";
 
-
-interface Props extends ButtonProps {
-  text?: string
-  variant: 'outlined' | 'contained' | 'text'
-  size: 'large' | 'medium' | 'small'
-  sx?: SxProps
+interface Props {
+  text?: string;
+  variant: "outlined" | "contained" | "text";
+  size: "large" | "medium" | "small";
+  sx?: SxProps;
+  startIcon?: JSX.Element;
+  endIcon?: JSX.Element;
+  color?: string;
+  handleAddToCart?: () => void;
 }
 
 const CustomizedButton = ({
@@ -17,20 +20,22 @@ const CustomizedButton = ({
   size,
   sx,
   color,
+  handleAddToCart,
   ...other
 }: Props) => {
   return (
     <Button
       variant={variant}
-      color={color ?? 'primary'}
+      color={color ?? "primary"}
       size={size}
       disableElevation
       sx={sx}
       startIcon={startIcon}
+      onClick={handleAddToCart}
       {...other}
     >
       {text}
     </Button>
-  )
-}
-export default CustomizedButton
+  );
+};
+export default CustomizedButton;

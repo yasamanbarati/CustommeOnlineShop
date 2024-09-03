@@ -1,44 +1,48 @@
- "use client";
-import {IconButton, InputBase, styled } from '@mui/material'
-import { SearchIcon } from '@/components/icons'
+"use client";
+import { IconButton, InputBase, styled, SxProps } from "@mui/material";
+import { SearchIcon } from "@/components/icons";
 
-const InputSection = styled('div')(({ theme }) => ({
-  position:'relative',
-  width:'100%',
-  height:'48px',
-  borderRadius:'16px',
-  padding:'11px 24px',
-  border: `1px solid ${theme.palette.black.light}`,
-  display:'flex',
-  justifyContent:'flex-start',
-  alignItems:'center',
-  '& button':{
-    position:'absolute',
-    left:'10px',
-    '& svg':{
-      width:'24px',
-      height:'24px', 
-    }
+const InputSection = styled("div")(({ theme }: any) => ({
+  position: "relative",
+  width: "400px",
+  height: "48px",
+  borderRadius: "12px",
+  padding: "12px",
+  gap: "8px",
+  background: theme.palette.primary.light,
+  boxShadow: "0px 4px 4px #00000025",
+  display: "flex",
+  justifyContent: "flex-start",
+  alignItems: "center",
+  "& button": {
+    position: "absolute",
+    left: "10px",
+    "& svg": {
+      width: "24px",
+      height: "24px",
+    },
   },
-  [theme.breakpoints.down('sm')]:{
-    height:'42px',
-  }
-}))
+  [theme.breakpoints.up("lg")]: {
+    width: "447px",
+  },
+  [theme.breakpoints.down("md")]: {
+    height: "42px",
+  },
+}));
 
-const SearchInput = () => {
+const SearchInput = ({ sx }: any) => {
   return (
-    <InputSection>
-    <InputBase
-        placeholder="Search Google Maps"
-        inputProps={{ 'aria-label': 'search google maps' }}
-        sx={{width:'90%',height:'100%'}}
+    <InputSection sx={sx}>
+      <InputBase
+        placeholder="جستحو"
+        inputProps={{ "aria-label": "Search Product" }}
+        sx={{ width: "90%", height: "100%" }}
       />
       <IconButton type="button" aria-label="search">
         <SearchIcon />
       </IconButton>
-      </InputSection>
+    </InputSection>
+  );
+};
 
-  )
-}
-
-export default SearchInput
+export default SearchInput;
