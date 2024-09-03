@@ -21,7 +21,7 @@ const MainSection = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "flex-start",
   alignItems: "center",
-  height: "300px",
+  minHeight: "300px",
   "& .swiper-section": {
     width: "100%",
     "& .swiper-wrapper": {
@@ -33,7 +33,7 @@ const MainSection = styled("div")(({ theme }) => ({
       alignItems: "center",
       padding: "12px",
       maxWidth: "250px",
-      height: "300px",
+      minHeight: "300px",
       '& .product-card':{
         boxShadow: `0 2px 3px 1px ${theme.palette.black.light}`
       }
